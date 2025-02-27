@@ -63,3 +63,63 @@ selectMenu.addEventListener("change", () => {
 */
 
 
+//Таймер зі зворотнім відліком
+//Часовий пояс не опрацьовано
+
+//1) Потрібно задати дедлайн 
+//2) Потрібно задати поточну дату
+//3) Потрібно знайти їх різницю
+//4) Різницю конвертувати в нормальний фортмат для користувача
+//5) Відобразити це все на екрані
+
+/*const deadline = new Date(2026, 0, 1);
+const daysElement = document.querySelector(".days");
+const hoursElement = document.querySelector(".hours");
+const minutesElement = document.querySelector(".minutes");
+const secondsElement = document.querySelector(".seconds");
+
+function timer() {
+    const today = new Date();
+    const delta = deadline - today;
+    console.log(delta);
+
+    const seconds = Math.floor(delta / 1000) % 60;
+    const minutes = Math.floor(delta / 1000 / 60) % 60;
+    const hours = Math.floor(delta / 1000 / 60 / 60) % 24;
+    const days = Math.floor(delta / 1000 / 60 / 60 / 24);
+    daysElement.textContent = days < 10 ? `0${days}` : days;
+    hoursElement.textContent = hours < 10 ? `0${hours}` : hours;
+    minutesElement.textContent = minutes < 10 ? `0${minutes}` : minutes;
+    secondsElement.textContent = seconds < 10 ? `0${seconds}` : seconds;
+}
+setInterval(timer, 1000);
+*/
+
+
+//promise
+
+/*function promiseCreator(counter) {
+    return new Promise((ok, failed) => {
+        let total = 0;
+
+        for (let i = 0; i < counter; i++) {
+            total += i;
+        }
+        if (total % 2 === 0) {
+            ok(total);
+        }
+        else {
+            failed("Error");
+        }
+    });
+}
+
+
+    promiseCreator(10)
+        .then((data) => console.log(data))
+        .catch((error) => console.log(error));
+
+    promiseCreator(999)
+        .then((data) => console.log(data))
+        .catch((error) => console.log(error));
+*/
