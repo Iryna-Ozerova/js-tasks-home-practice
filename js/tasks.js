@@ -123,3 +123,87 @@ setInterval(timer, 1000);
         .then((data) => console.log(data))
         .catch((error) => console.log(error));
 */
+
+// секундомір, де числа виводяться в консоль
+
+/*let seconds = 5;
+
+const timer = setInterval(() => {
+    console.log(seconds);
+    seconds -= 1; // Зменшуємо лічильник
+
+
+    if (seconds < 0) {
+        clearInterval(timer);
+        console.log("⏰ Час вийшов!"); // Зупиняємо таймер
+    }
+}, 1000);
+*/
+
+//Запуск таймера з кнопки
+/*const startButton = document.querySelector("#start");
+const countdownEl = document.querySelector("#countdown");
+
+startButton.addEventListener("click", () => {
+  let seconds = 10;
+  countdownEl.textContent = seconds;
+
+  const timer = setInterval(() => {
+    seconds -= 1;
+    countdownEl.textContent = seconds;
+
+    if (seconds < 0) {
+      clearInterval(timer);
+      countdownEl.textContent = "⏰ Час вийшов!";
+    }
+  }, 1000);
+});
+*/
+
+// Вибір дати та вивід різниці
+/*
+const userDate = prompt("Введіть дату у форматі YYYY-MM-DD:"); //отримали дату користувача через промпт
+const targetDate = new Date(userDate); //перетворили її в Date-об'єкт, об'єкт дати на основі введеного користувачем рядка
+const currentDate = new Date; //об'єкт дати, що містить поточну дату і час на момент виконання коду
+
+const diffMs = targetDate - currentDate;
+const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+
+if (diffDays >= 0) {
+    console.log(`До вибраної дати залишилося ${diffDays} днів.`);
+}
+else {
+  console.log("⛔ Ви вибрали дату в минулому.");
+}
+*/
+//зворотній відлік з html
+const timerElement = document.getElementById("timer");
+const startButton = document.getElementById("startButton");
+
+let timeLeft = 10; //лічильник, який зменшується на 1 кожну секунду.
+let countdownInterval = null; //зберігає ідентифікатор setInterval(), щоб мати змогу його зупинити
+
+startButton.addEventListener("click", () => {
+    startButton.disabled = true; // Вимикаємо кнопку після старту
+
+    countdownInterval = setInterval(() => {
+        timeLeft--;
+        timerElement.textContent = timeLeft;
+
+        // Зміна кольору залежно від значення часу
+        if (timeLeft > 5) {
+            timerElement.style.backgroundColor = "green";
+        } else if (timeLeft > 2) {
+            timerElement.style.backgroundColor = "orange";
+        } else {
+            timerElement.style.backgroundColor = "red";
+        }
+
+        // Зупинка таймера, коли доходить до 0
+        if (timeLeft === 0) {
+            clearInterval(countdownInterval);
+            timerElement.textContent = "⏳";
+            startButton.disabled = false; // Вмикаємо кнопку знову
+        }
+    }, 1000);
+});
