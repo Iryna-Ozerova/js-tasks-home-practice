@@ -1,9 +1,9 @@
 "use strict";
 
-/*task-1
-/* При натисканні на кнопку змінюється колір фону сторінки.
+//task-1
+ //При натисканні на кнопку змінюється колір фону сторінки.
 
-const button = document.getElementById("changeColorBtn");
+/*const button = document.getElementById("changeColorBtn");
 
 button.addEventListener("click", () => {
     document.body.style.backgroundColor = getRandomColor();
@@ -12,7 +12,7 @@ button.addEventListener("click", () => {
 function getRandomColor() {
     return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
-
+*/
 
 /*task-2*/
 /*Відстежуємо, яку клавішу натиснув користувач, і виводимо її у div.
@@ -176,34 +176,3 @@ else {
   console.log("⛔ Ви вибрали дату в минулому.");
 }
 */
-//зворотній відлік з html
-const timerElement = document.getElementById("timer");
-const startButton = document.getElementById("startButton");
-
-let timeLeft = 10; //лічильник, який зменшується на 1 кожну секунду.
-let countdownInterval = null; //зберігає ідентифікатор setInterval(), щоб мати змогу його зупинити
-
-startButton.addEventListener("click", () => {
-    startButton.disabled = true; // Вимикаємо кнопку після старту
-
-    countdownInterval = setInterval(() => {
-        timeLeft--;
-        timerElement.textContent = timeLeft;
-
-        // Зміна кольору залежно від значення часу
-        if (timeLeft > 5) {
-            timerElement.style.backgroundColor = "green";
-        } else if (timeLeft > 2) {
-            timerElement.style.backgroundColor = "orange";
-        } else {
-            timerElement.style.backgroundColor = "red";
-        }
-
-        // Зупинка таймера, коли доходить до 0
-        if (timeLeft === 0) {
-            clearInterval(countdownInterval);
-            timerElement.textContent = "⏳";
-            startButton.disabled = false; // Вмикаємо кнопку знову
-        }
-    }, 1000);
-});
